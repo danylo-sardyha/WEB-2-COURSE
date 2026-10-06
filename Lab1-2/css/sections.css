@@ -1,0 +1,45 @@
+/* Hero Section */
+.hero { padding: 60px 0 100px; }
+.hero__container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+.hero__content { flex: 1; max-width: 500px; }
+.hero__title { font-size: 4rem; margin-bottom: 25px; }
+.hero__text { font-size: 1.1rem; margin-bottom: 40px; }
+.hero__image-wrapper { flex: 1; display: flex; justify-content: flex-end; }
+.hero__image { width: 100%; max-width: 600px; border-radius: 20px; }
+
+/* Testimonials Section */
+.testimonials { background-color: var(--color-bg-light); padding: 100px 0; }
+.testimonials__container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+.testimonials__content { flex: 1; max-width: 500px; }
+.testimonials__stars { color: #FFC107; margin-bottom: 20px; font-size: 1.2rem; letter-spacing: 5px; }
+.testimonials__quote { font-size: 1.2rem; font-style: italic; color: var(--color-text-main); margin-bottom: 30px; line-height: 1.8; }
+.testimonials__author-name { font-weight: 700; color: var(--color-text-main); font-size: 1.1rem; }
+.testimonials__image-wrapper { flex: 1; display: flex; justify-content: flex-end; }
+.testimonials__image { width: 100%; max-width: 400px; border-radius: 20px; }
+
+.stories { padding: 100px 0; }
+.stories__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.stories__view-all { color: var(--color-primary); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.stories__view-all:hover { color: var(--color-primary-hover); }
+
+.stories__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+
+/* Sections Media Queries */
+@media (max-width: 991px) {
+    .hero__container, .testimonials__container { flex-direction: column; text-align: center; }
+    .hero__content, .testimonials__content { max-width: 100%; }
+    .hero__title { font-size: 3rem; }
+    .hero__image-wrapper, .testimonials__image-wrapper { justify-content: center; }
+    
+    .stories__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+    .hero__title { font-size: 2.5rem; }
+    
+    .stories__grid { grid-template-columns:repeat(1, 1fr); }
+}
+
+@media (max-width: 540px) {
+    .hero__title { font-size: 2rem; }
+}
