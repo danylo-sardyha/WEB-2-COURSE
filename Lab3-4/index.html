@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Навігаційна панель -->
+<nav class="navbar">
+    <div class="navbar__brand">My Store</div>
+    <div class="navbar__tabs">
+        <button id="navView" class="tab active">My Shoes</button>
+        <button id="navCreate" class="tab">Create Shoe</button>
+    </div>
+    <div class="navbar__search">
+        <input type="text" id="searchInput" placeholder="Type something...">
+        <button id="searchBtn" class="btn btn-outline">Search</button>
+        <button id="clearBtn" class="btn btn-outline-danger">Clear</button>
+    </div>
+</nav>
+
+<!-- Сторінка перегляду (View Page) -->
+<div id="viewPage" class="page-layout">
+    <!-- Бокова панель -->
+    <aside class="sidebar">
+        <h2 class="sidebar__title">Manage shoes</h2>
+        
+        <div class="sidebar__control">
+            <label for="sortToggle">Sort by most<br>expensive shoes</label>
+            <label class="switch">
+                <input type="checkbox" id="sortToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <hr class="divider">
+        
+        <div class="sidebar__control flex-col">
+            <label>Count total daily expenses:</label>
+            <button id="countBtn" class="btn btn-primary">Count</button>
+            <div class="total-display">
+                <span>Total expenses:</span>
+                <strong>$<span id="totalPrice">0.0</span></strong>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Сітка карток -->
+    <main class="grid-content" id="shoesGrid">
+        <!-- Картки генеруватимуться через JS -->
+    </main>
+</div>
+
+<!-- Сторінка створення (Create Page) -->
+<div id="createPage" class="page-layout hidden">
+    <div class="form-container">
+        <h1 class="form-title">Create shoe</h1>
+        <form id="shoeForm">
+            <div class="form-group">
+                <label>Title (Виробник)</label>
+                <input type="text" id="manufacturer" placeholder="Text..." required>
+            </div>
+            <div class="form-group">
+                <label>Description (Колір)</label>
+                <textarea id="color" placeholder="Опис кольору та матеріалу..." rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Daily expense ($) (Ціна)</label>
+                <div class="number-input">
+                    <input type="number" id="price" value="5" min="1" step="0.5" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Shoe Size (Розмір)</label>
+                <select id="size" required>
+                    <option value="" disabled selected>Select Size</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Сторінка редагування (Edit Page) -->
+<div id="editPage" class="page-layout hidden">
+    <div class="form-container">
+        <h1 class="form-title">Edit shoe</h1>
+        <form id="editForm">
+            <div class="form-group">
+                <label>Title (Виробник)</label>
+                <input type="text" id="editManufacturer" placeholder="Text..." required>
+            </div>
+            <div class="form-group">
+                <label>Description (Колір)</label>
+                <textarea id="editColor" placeholder="Опис кольору та матеріалу..." rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Daily expense ($) (Ціна)</label>
+                <div class="number-input">
+                    <input type="number" id="editPrice" min="1" step="0.5" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Shoe Size (Розмір)</label>
+                <select id="editSize" required>
+                    <option value="" disabled selected>Select Size</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Edit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Банер з помилкою (Toast) -->
+<div id="errorBanner" class="error-banner hidden">
+    <span><strong>Oh snap!</strong> Change a few things up and try submitting again.</span>
+    <button id="closeError" class="close-error">&times;</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
